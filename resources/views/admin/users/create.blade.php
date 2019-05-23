@@ -6,7 +6,10 @@
     <h3>Create Users</h3>
     <div class="col-md-8">
 
-        {!! Form::open(['method' => 'POST', 'action' => 'AdminUsersController@store']) !!}
+        @include('includes.error_form')
+
+
+        {!! Form::open(['method' => 'POST', 'action' => 'AdminUsersController@store', 'files' => true]) !!}
 
         <div class="form-group">
             {!! Form::label('name', 'Name:') !!}
@@ -33,6 +36,11 @@
         </div>
 
         <div class="form-group">
+            {!! Form::label('file', 'Upload:') !!}
+            {!! Form::file('file', null, ['class' => 'form-control']) !!}
+        </div>
+
+        <div class="form-group">
             {!! Form::submit('Create User', ['class' => 'btn btn-primary']) !!}
         </div>
 
@@ -40,6 +48,8 @@
 
     </div>
 
-@endsection
+
+
+    @endsection
 
 
