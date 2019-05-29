@@ -34,7 +34,6 @@ class AdminUsersController extends Controller
 
         $roles = Role::pluck('name', 'id')->all();
 
-
         return view('admin.users.create', compact('roles'));
     }
 
@@ -47,12 +46,18 @@ class AdminUsersController extends Controller
     public function store(UserRequest $request)
     {
         //
-        User::create($request->all());
 
-        return redirect('/admin/users');
-        //return $request->all();
+        //$input = $request->all();
 
+          if($request->file('photo_id')) {
 
+               return 'photo exists';
+          }
+
+        //User::create($request->all());
+
+        //return redirect('/admin/users');
+           //return $request->all();
     }
 
     /**
@@ -64,8 +69,6 @@ class AdminUsersController extends Controller
     public function show($id)
     {
         //
-
-        return view('admin.users.show');
     }
 
     /**
@@ -77,8 +80,6 @@ class AdminUsersController extends Controller
     public function edit($id)
     {
         //
-
-        return view('admin.users.edit');
     }
 
     /**
