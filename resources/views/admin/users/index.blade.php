@@ -9,6 +9,7 @@
         <thead>
         <tr>
             <th>Id</th>
+            <th>Photo</th>
             <th>Name</th>
             <th>Email</th>
             <th>Role Id</th>
@@ -24,6 +25,7 @@
             @foreach($users as $user)
         <tr>
             <td>{{$user->id}}</td>
+            <td style="padding-left: 50px;"><img style="border-radius: 50%; height: 70px; width: 70px;" src="{{asset($user->photo ? $user->photo->file : 'No user photo')}}"></td>
             <td>{{$user->name}}</td>
             <td>{{$user->email}}</td>
             <td>{{$user->role_id}}</td>
