@@ -25,8 +25,8 @@
             @foreach($users as $user)
         <tr>
             <td>{{$user->id}}</td>
-            <td style="padding-left: 50px;"><img style="border-radius: 50%; height: 70px; width: 70px;" src="{{asset($user->photo ? $user->photo->file : 'No user photo')}}"></td>
-            <td>{{$user->name}}</td>
+            <td style="padding-left: 50px;"><img style="border-radius: 50%; height: 70px; width: 70px;" src="{{asset($user->photo ? $user->photo->file : 'https://placebeard.it/80x80')}}"></td>
+            <td><a href="{{route('users.edit', $user->id)}}">{{$user->name}}</a></td>
             <td>{{$user->email}}</td>
             <td>{{$user->role_id}}</td>
             <td>{{$user->is_active === 1 ? 'active' : 'Not active'}}</td>
