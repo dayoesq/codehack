@@ -49,7 +49,7 @@ class AdminUsersController extends Controller
     {
         //
 
-        if(trim($request->password == '')) {
+        if(trim($request->password === '')) {
 
             $input = $request->except('password');
 
@@ -57,7 +57,7 @@ class AdminUsersController extends Controller
 
             $input = $request->all();
 
-            $input['password'] = password_hash($request->password, PASSWORD_DEFAULT, array("cost" => 10));
+            $input['password'] = bcrypt($request->password);
         }
 
 
@@ -126,7 +126,7 @@ class AdminUsersController extends Controller
 
         $user = User::findOrFail($id);
 
-        if(trim($request->password == '')) {
+        if(trim($request->password === '')) {
 
             $input = $request->except('password');
 
@@ -134,7 +134,7 @@ class AdminUsersController extends Controller
 
             $input = $request->all();
 
-            $input['password'] = password_hash($request->password, PASSWORD_DEFAULT, array("cost" => 10));
+            $input['password'] = bcrypt($request->password);
         }
 
         //$input = $request->all();
