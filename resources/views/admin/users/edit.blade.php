@@ -4,7 +4,7 @@
 @section('content')
 
     <h3>Edit Users</h3>
-    
+
     <div class="sm-3" style="margin: 10px;">
         <img style="height: 100px; width: 100px;" src="{{asset($user->photo ? $user->photo->file : 'https://placebeard.it/100x100')}}" alt="" class="img-responsive img-circle">
     </div>
@@ -41,13 +41,19 @@
 
         <div class="form-group">
             {!! Form::label('photo_id', 'Upload:') !!}
-            {!! Form::file('photo_id', ['class' => 'form-control']) !!}
+            {!! Form::file('photo_id') !!}
         </div>
 
         <div class="form-group">
-            {!! Form::submit('Edit User', ['class' => 'btn btn-primary']) !!}
+            {!! Form::submit('Edit User', ['class' => 'btn btn-primary col-md-6']) !!}
         </div>
 
+        {!! Form::close() !!}
+
+        {!! Form::open(['method' => 'DELETE', 'action' => ['AdminUsersController@destroy', $user->id]]) !!}
+        <div class="form-group">
+            {!! Form::submit('Delete', ['class' => 'btn btn-danger col-md-6']) !!}
+        </div>
         {!! Form::close() !!}
 
     </div>
