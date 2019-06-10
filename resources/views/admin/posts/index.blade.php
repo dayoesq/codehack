@@ -24,8 +24,8 @@
            <tr>
                 <td>{{$post->id}}</td>
                 <td>{{$post->user->name}}</td>
-                <td>{{$post->category_id}}</td>
-                <td style="padding-left: 55px;"><img style="border-radius: 10px; height: 70px; width: 100px;" src="{{asset($post->photo ? $post->photo->file : 'https://placebeard.it/80x80')}}"></td>
+                <td>{{$post->category ? $post->category->name : 'Uncategorized'}}</td>
+                <td><img style="border-radius: 10px; height: 70px; width: 100px;" src="{{asset($post->photo ? $post->photo->file : 'https://placebeard.it/80x80')}}"></td>
                 <td>{{$post->title}}</td>
                 <td>{{$post->body}}</td>
                 <td>{{$post->created_at->diffForhumans()}}</td>
